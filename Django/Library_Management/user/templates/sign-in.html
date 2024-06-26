@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block headers %}
+    {% comment %} <script src="{% static 'scripts/sign-in.js' %}" defer></script> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/sign-in.css' %}">
+    <title>Sign-up</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="sign-up">
+  <div class="info">
+    <div class="header">
+      <h1>Join Our Library!</h1>
+      <p>Feel free to join as an admin or user to grow our community.</p>
+    </div>
+    <div class="register">
+      <form action="{% url 'sign-in' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_email">Email</label>
+          {{ form.email }}
+          {% if form.email.errors %}
+            <div class="error">{{ form.email.errors }}</div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="id_username">Username</label>
+          {{ form.username }}
+          {% if form.username.errors %}
+            <div class="error">{{ form.username.errors }}</div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="id_password1">Password</label>
+          {{ form.password1 }}
+          {% for error in form.password1.errors %}
+            <div class="error">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          <label for="id_password2">Confirm Password</label>
+          {{ form.password2 }}
+          {% if form.password2.errors %}
+            <div class="error">{{ form.password2.errors }}</div>
+          {% endif %}
+        </div>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+  <div class="img"></div>
+</div>
+{% endblock %} 

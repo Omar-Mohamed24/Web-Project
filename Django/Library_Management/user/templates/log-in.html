@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block headers %}
+<script src="{% static 'scripts/log-in.js' %}" defer></script>
+<link rel="stylesheet" href="{% static 'css/log-in.css' %}">
+    <title>Login</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="login">
+  <div class="info">
+    <div class="header">
+      <h1>Login</h1>
+      <p>Welcome back! Please login to your account.</p>
+    </div>
+    <form id="form" action="{% url 'log-in' %}" method="post">
+      {% csrf_token %}
+      <div class="user-field">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+      </div>
+      <div class="password-field">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+      </div>
+      <div class="submit-field"><input type="submit" value="Login"></div>
+    </form>
+    
+    <p>Don't have an account? <a href="{% url 'sign-in' %}">Sign up here</a>.</p>
+    {% if form.non_field_errors %}
+      <p style = "color:red;">incorrect username or password</p>
+    {% endif %}
+  </div>
+  <div class="img">
+    <img src="{% static 'Photos/slider-img.png' %}" alt="">
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block headers %}
+    <script src="{% static 'scripts/category.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>category</title>
+{% endblock %}  
+
+{% block content %}
+      <section class="categories">
+        <div class="container">
+            <div class="content">
+                <div class="heading">
+                    <h1>Book Categories</h1>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+                </div>
+                <div class="cat-content">
+                    <div class="category">
+                        <i class='bx bx-book'></i>
+                        <h2>Fantasy</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                    <div class="category">
+                        <i class='bx bx-edit-alt'></i>
+                        <h2>History</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                    <div class="category">
+                        <i class='bx bxs-brain'></i>
+                        <h2>Science</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                    <div class="category">
+                        <i class='bx bxs-palette'></i>
+                        <h2>Art</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                    <div class="category">
+                        <i class='bx bx-money-withdraw'></i>
+                        <h2>Financial</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                    <div class="category">
+                        <i class='bx bxs-pencil'></i>
+                        <h2>literature</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur quasi, molestiae beatae necessitatibus optio possimus atque iste porro facilis adipisci,</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

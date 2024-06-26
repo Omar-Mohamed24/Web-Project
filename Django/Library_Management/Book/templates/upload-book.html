@@ -1,0 +1,174 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block headers %}
+    <title>Add new book</title>
+    <script src="{% static 'scripts/upload-book.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/upload-book.css' %}">
+{% endblock %} 
+    
+{% block content %}
+    <main>
+        <form class="upload-form" id="upload-form" method="POST">
+            {% csrf_token %}
+            <h2 class="info-header">Add New book</h2>
+            <ul class="info-list">
+                <!-- Title Field -->
+                <li class="info-item">
+                    <label for="book-title">Book title:</label>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.title.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Author Field -->
+                <li class="info-item">
+                    <label for="author">Author name:</label>
+                    {{ form.author }}
+                    {% if form.author.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.author.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Publisher Field -->
+                <li class="info-item">
+                    <label for="publisher">Publisher:</label>
+                    {{ form.publisher }}
+                    {% if form.publisher.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.publisher.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Category Field -->
+                <li class="info-item">
+                    <label for="category">Categories:</label>
+                    {{ form.category }}
+                    {% if form.category.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.category.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- ISBN Field -->
+                <li class="info-item">
+                    <label for="isbn">ISBN:</label>
+                    {{ form.isbn }}
+                    {% if form.isbn.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.isbn.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Pages Field -->
+                <div class="small-list">
+                    <li class="info-item">
+                        <label for="pages">No.Pages:</label>
+                        {{ form.pages }}
+                        {% if form.pages.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.pages.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                    
+                    <!-- Edition Field -->
+                    <li class="info-item">
+                        <label for="edition">Edition:</label>
+                        {{ form.edition }}
+                        {% if form.edition.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.edition.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                    
+                    <!-- Rating Field -->
+                    <li class="info-item">
+                        <label for="rating">Rating(Out of 5):</label>
+                        {{ form.rating }}
+                        {% if form.rating.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.rating.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                </div>
+                
+                <!-- About Field -->
+                <li class="info-item">
+                    <label for="about">About book:</label>
+                    {{ form.about }}
+                    {% if form.about.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.about.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Summary Field -->
+                <li class="info-item">
+                    <label for="summary">Summary:</label>
+                    {{ form.summary }}
+                    {% if form.summary.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.summary.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                
+                <!-- Book Cover URL Field -->
+                <li class="info-item">
+                    <label for="book-cover">Book cover URL:</label>
+                    {{ form.cover }}
+                    {% if form.cover.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.cover.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+
+                <!-- Book status Field -->
+                <li class="info-item">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </li>
+            </ul>
+            <button type="submit">Upload</button>
+            <button type="reset">Reset</button>
+        </form>
+    </main>
+{% endblock %}
